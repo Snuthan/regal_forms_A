@@ -1,0 +1,12 @@
+{
+  "FC": {
+    "title": "Form FC - Foreign Contribution",
+    "checklist": ["PAN card", "Bank details", "Signature"],
+    "sample_link": "https://yourdomain.com/forms/form-fc-sample.pdf"
+  },
+  "XYZ": {
+    "title": "Form XYZ - Export Declaration",
+    "checklist": ["Invoice", "Shipping Bill"],
+    "sample_link": "https://yourdomain.com/forms/form-xyz-sample.pdf"
+  }
+}
