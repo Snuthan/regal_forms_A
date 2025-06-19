@@ -1,0 +1,5 @@
+{
+  "FC": ["PAN", "Amount", "Purpose"],
+  "APR": ["Company Name", "CIN", "Total Investment"],
+  "ECB-2": ["Loan Amount", "Lender Name", "Repayment Date"]
+}
