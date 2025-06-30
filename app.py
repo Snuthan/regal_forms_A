@@ -17,7 +17,7 @@ def detect_form_type(file):
 # --- Page Config ---
 st.set_page_config(
     page_title="Regal Forms Assistant",
-    page_icon="📄",
+    page_icon="assets/logo.png",
     layout="wide",
     initial_sidebar_state="auto"
 )
