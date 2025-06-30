@@ -23,48 +23,30 @@ def detect_form_type(file):
     else:
         return "Unknown form type"
 
-# --- Header: Logo + Title + Links Centered ---
-st.markdown("""
-<style>
-.header-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-.header-wrap img {
-    height: 50px;
-    margin-right: 8px;
-}
-.header-wrap h1 {
-    font-size: 2rem;
-    color: #4B0082;
-    margin: 0;
-}
-.nav-links {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-}
-.nav-links a {
-    margin-left: 20px;
-    font-weight: 500;
-    color: #4B0082;
-    text-decoration: none;
-}
-</style>
+# --- Load Logo ---
+logo = Image.open("assets/Regality logo 200x200.png")
 
-<div class="header-wrap">
-    <img src="assets/Regality%20logo%20200x200.png" alt="Logo">
-    <h1>📄 Regal Forms Assistant</h1>
-</div>
-<div class="nav-links">
-    <a href="https://regality.ai" target="_blank">About</a>
-    <a href="https://your-contact-link.com" target="_blank">Contact</a>
-</div>
-<hr style="margin-top: 0.5rem;">
-""", unsafe_allow_html=True)
+# --- Header: Logo + Title + Links in One Row ---
+col1, col2, col3 = st.columns([1, 8, 3])
+
+with col1:
+    st.image(logo, width=50)
+
+with col2:
+    st.markdown("<h1 style='color:#4B0082; padding-top: 10px;'>📄 Regal Forms Assistant</h1>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown(
+        """
+        <div style="text-align: right; padding-top: 15px;">
+            <a href="https://regality.ai" target="_blank" style="margin-right:20px; font-weight: 500; color: #4B0082;">About</a>
+            <a href="https://your-contact-link.com" target="_blank" style="font-weight: 500; color: #4B0082;">Contact</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+st.markdown("<hr style='margin-top: 0.5rem;'>", unsafe_allow_html=True)
 
 # --- Custom Styling ---
 st.markdown("""
@@ -84,7 +66,7 @@ footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-# --- Main Content: Upload + Review ---
+# --- Main Content Layout ---
 col1, col2 = st.columns([1, 1])
 
 with col1:
@@ -92,7 +74,7 @@ with col1:
     with st.container():
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
 
-        uploaded_file = st.file_uploader("Upload Form FC, APR, or ECB-2 (PDF only)", type=["pdf"])
+        uploaded_file = st.file_uploader("Upload Form FC or APR (PDF only)", type=["pdf"])
         supporting_docs = st.file_uploader("Upload Supporting Documents", type=["csv", "xlsx", "pdf"], accept_multiple_files=True)
 
         form_type = None
