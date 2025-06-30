@@ -85,7 +85,7 @@ st.markdown("""
     <div class="navbar-title">📄 Regal Forms Assistant</div>
     <div class="navbar-links">
         <a href="https://regality.ai" target="_blank">About</a>
-        <a href="https://your-contact-link.com" target="_blank">Contact</a>
+        <a href="https://regality.ai/contact/" target="_blank">Contact</a>
     </div>
 </div>
 """, unsafe_allow_html=True)
