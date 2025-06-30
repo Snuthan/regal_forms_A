@@ -81,14 +81,25 @@ footer {visibility: hidden;}
 # --- Custom Navbar ---
 st.markdown("""
 <div class="navbar">
-    <div></div>
+    <div class="navbar-logo">
+        <img src="assets/Regality%20logo%20200x200.png" alt="Regality Logo" style="height:40px;">
+    </div>
     <div class="navbar-title">📄 Regal Forms Assistant</div>
     <div class="navbar-links">
         <a href="https://regality.ai" target="_blank">About</a>
-        <a href="https://regality.ai/contact/" target="_blank">Contact</a>
+        <a href="https://your-contact-link.com" target="_blank">Contact</a>
     </div>
 </div>
+
+<style>
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+</style>
 """, unsafe_allow_html=True)
+
+
 
 # --- Main Content: Split into Upload and Results Section ---
 col1, col2 = st.columns([1, 1])
