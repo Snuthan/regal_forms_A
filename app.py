@@ -82,8 +82,8 @@ footer {visibility: hidden;}
 st.markdown("""
 <div class="navbar">
     <div class="navbar-title-with-logo">
-        <img src="assets/Regality%20logo%20200x200.png" alt="Regality Logo" style="height:40px; margin-right:10px;">
-        <span> Regal Forms Assistant</span>
+        <img src="assets/Regality%20logo%20200x200.png" alt="Regality Logo" style="height:40px; vertical-align: middle; margin-right:10px;">
+        <span>📄 Regal Forms Assistant</span>
     </div>
     <div class="navbar-links">
         <a href="https://regality.ai" target="_blank">About</a>
@@ -101,13 +101,13 @@ st.markdown("""
     border-bottom: 1px solid #ddd;
     margin-bottom: 1.5rem;
 }
+
 .navbar-title-with-logo {
     display: flex;
     align-items: center;
     font-size: 1.8rem;
     font-weight: 600;
     color: #4B0082;
-    margin: 0 auto;
 }
 .navbar-links {
     font-size: 1rem;
