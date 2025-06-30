@@ -1,6 +1,14 @@
 import streamlit as st
 from PIL import Image
 
+# --- Page Config ---
+st.set_page_config(
+    page_title="Regal Forms Assistant",
+    page_icon="📄",
+    layout="wide",
+    initial_sidebar_state="auto"
+)
+
 # --- Form Type Detection Function ---
 def detect_form_type(file):
     if not file:
@@ -15,61 +23,32 @@ def detect_form_type(file):
     else:
         return "Unknown form type"
 
-# --- Page Config ---
-st.set_page_config(
-    page_title="Regal Forms Assistant",
-    page_icon="📄",
-    layout="wide",
-    initial_sidebar_state="auto"
-)
+# --- Load Logo ---
+logo = Image.open("assets/Regality logo 200x200.png")
 
-# --- Custom Styles for Header with Logo and Links ---
-st.markdown("""
-<style>
-.header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding: 1rem 0;
-}
-.header-container img {
-    height: 60px;
-}
-.header-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #4B0082;
-}
-.nav-links {
-    position: absolute;
-    right: 30px;
-    top: 25px;
-}
-.nav-links a {
-    margin-left: 20px;
-    font-weight: 500;
-    color: #4B0082;
-    text-decoration: none;
-}
-</style>
-""", unsafe_allow_html=True)
+# --- Header: Logo + Title + Links in One Row ---
+col1, col2, col3 = st.columns([1, 8, 3])
 
-# --- Header: Logo + Title + Links ---
-st.markdown("""
-<div class="header-container">
-    <img src="assets/Regality%20logo%20200x200.png" alt="Logo">
-    <div class="header-title">📄 Regal Forms Assistant</div>
-</div>
-<div class="nav-links">
-    <a href="https://regality.ai" target="_blank">About</a>
-    <a href="https://your-contact-link.com" target="_blank">Contact</a>
-</div>
-""", unsafe_allow_html=True)
+with col1:
+    st.image(logo, width=50)
+
+with col2:
+    st.markdown("<h1 style='color:#4B0082; padding-top: 10px;'> Regal Forms Assistant</h1>", unsafe_allow_html=True)
+
+with col3:
+    st.markdown(
+        """
+        <div style="text-align: right; padding-top: 15px;">
+            <a href="https://regality.ai" target="_blank" style="margin-right:20px; font-weight: 500; color: #4B0082;">About</a>
+            <a href="https://your-contact-link.com" target="_blank" style="font-weight: 500; color: #4B0082;">Contact</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 st.markdown("<hr style='margin-top: 0.5rem;'>", unsafe_allow_html=True)
 
-# --- Custom Section Styles ---
+# --- Custom Styling ---
 st.markdown("""
 <style>
 body {
@@ -87,7 +66,7 @@ footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-# --- Main Content: Upload + Review ---
+# --- Main Content Layout ---
 col1, col2 = st.columns([1, 1])
 
 with col1:
