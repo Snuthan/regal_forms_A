@@ -81,10 +81,10 @@ footer {visibility: hidden;}
 # --- Custom Navbar ---
 st.markdown("""
 <div class="navbar">
-    <div class="navbar-logo">
-        <img src="assets/Regality%20logo%20200x200.png" alt="Regality Logo" style="height:40px;">
+    <div class="navbar-title-with-logo">
+        <img src="assets/Regality%20logo%20200x200.png" alt="Regality Logo" style="height:40px; margin-right:10px;">
+        <span> Regal Forms Assistant</span>
     </div>
-    <div class="navbar-title">📄 Regal Forms Assistant</div>
     <div class="navbar-links">
         <a href="https://regality.ai" target="_blank">About</a>
         <a href="https://your-contact-link.com" target="_blank">Contact</a>
@@ -92,12 +92,37 @@ st.markdown("""
 </div>
 
 <style>
-.navbar-logo {
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1.5rem;
+}
+.navbar-title-with-logo {
     display: flex;
     align-items: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #4B0082;
+    margin: 0 auto;
+}
+.navbar-links {
+    font-size: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+.navbar-links a {
+    color: #4B0082;
+    text-decoration: none;
+    font-weight: 500;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
