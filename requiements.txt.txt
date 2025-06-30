@@ -1,9 +1,0 @@
-streamlit
-pandas
-pypdf
-pdfplumber
-pypdfium2
-reportlab
-python-docx
-openpyxl
-pillow
