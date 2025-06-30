@@ -1,5 +1,18 @@
-
 import streamlit as st
+
+# --- Form Type Detection Function ---
+def detect_form_type(file):
+    if not file:
+        return None
+    name = file.name.lower()
+    if "fc" in name:
+        return "Form FC"
+    elif "apr" in name:
+        return "Form APR"
+    elif "ecb" in name or "ecb-2" in name:
+        return "Form ECB-2"
+    else:
+        return "Unknown form type"
 
 # --- Page Config ---
 st.set_page_config(
@@ -65,8 +78,6 @@ footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-
-
 # --- Custom Navbar ---
 st.markdown("""
 <div class="navbar">
@@ -91,14 +102,23 @@ with col1:
         if uploaded_file:
             st.success(f"✅ Uploaded: {uploaded_file.name}")
         if supporting_docs:
-            st.success(f"✅ {len(supporting_docs)} supporting files uploaded.")
+            st.success(f"✅ {len(supporting_docs)} supporting file(s) uploaded.")
         st.markdown('</div>', unsafe_allow_html=True)
+
+    # Detect form type after upload
+    form_type = detect_form_type(uploaded_file)
 
 with col2:
     st.markdown("#### 📊 Review Results")
     with st.container():
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.write("🟣 Ready for Analysis")
+        if uploaded_file:
+            if form_type == "Unknown form type":
+                st.warning("⚠️ Unable to confidently detect form type from filename.")
+            else:
+                st.success(f"✅ Detected form type: **{form_type}**")
+        else:
+            st.info("🟣 Ready for Analysis - upload a form document to detect its type.")
         st.caption("Once your documents are uploaded, smart validation and guidance will appear here.")
         st.markdown('</div>', unsafe_allow_html=True)
 
