@@ -1,9 +1,6 @@
 streamlit
+pymupdf
 pandas
-pypdf
-pdfplumber
-pypdfium2
-reportlab
-python-docx
+pytesseract
+Pillow
 openpyxl
-pillow
